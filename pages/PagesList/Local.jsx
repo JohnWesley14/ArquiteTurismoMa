@@ -1,26 +1,28 @@
 import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from 'react-native'
 import React from 'react'
-import Home from './Home'
 import Ionicons from '@expo/vector-icons/Ionicons'
+import TextHeader from '../../components/TextHeader'
+import ImageArthur from '../../components/ImageArthur'
 
-const Local = ( ) => {
+const Local = ({ tema, texto1, texto2, imageOn } ) => {
+
+
   return (
     <View style={styles.container}>
-      <View>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.text}>Teatro Arthur Azevedo</Text>
-        </TouchableOpacity>
-      </View>
+      
+        <TextHeader />
+      
       <View style={styles.divImage}>
-        <Image source={require('../images/arthuraz.jpg')}/>
+        {imageOn? <ImageArthur /> : null}
 
-        <TouchableOpacity style={styles.list}>
-          <Text style={styles.item}>Localização           <Ionicons style={styles.ionIcons} name="arrow-forward-circle-outline" size={24} color="white" /></Text>
-          
-        </TouchableOpacity>
+       
         <View style={styles.divText}>
-          <Text style={styles.text1}>O Teatro Arthur Azevedo localiza-se na cidade de São Luís, no estado do Maranhão, no Brasil.</Text>
-          <Text style={styles.text2}>Endereço: R. do Sol, S/n - Centro, São Luís - MA, 65010-120</Text>
+          <TouchableOpacity style={styles.list}>
+            <Text style={styles.item}>{tema}           <Ionicons style={styles.ionIcons} name="arrow-forward-circle-outline" size={24} color="white" /></Text>
+            
+          </TouchableOpacity>
+            <Text style={styles.text1}>{texto1}</Text>
+            <Text style={styles.text2}>{texto2}</Text>
         </View>
         
       </View>
@@ -38,7 +40,7 @@ export default Local
 const styles = StyleSheet.create({
   container:{
     width: '100%',
-    height: '100%',
+    height: '50%',
     alignItems: 'center',
     backgroundColor: 'gray',
     flex: 1,
@@ -57,30 +59,43 @@ const styles = StyleSheet.create({
     color: '#FFF'
   },
   divImage:{
-    marginTop: '30%',
+    marginTop: '10%',
+    width: '100%',
+    marginLeft: 0,
+    
   },
   item:{
     fontSize: 22,
     color: '#fff',
     marginTop: 24,
+    width: '100%'
   },
   list:{
-    marginLeft: 80,
+    marginLeft: 0,
+    width: '100%'
   },
   divText:{
     display: 'flex',
-    marginLeft: 80,
-    width: '90%',
-    flexDirection: 'column'
+    alignItems: 'center',
+    width: '95%',
+    flexDirection: 'column',
+    marginLeft: 10,
   },
   text1:{
     color: 'white',
     fontWeight: 300,
     marginTop: 10,
+    marginLeft: 0,
+    width: '100%',
   },
   text2:{
     marginTop: 20,
     color: 'white',
     fontWeight: 600,
+    marginLeft: 0,
+    width: '100%'
+  },
+  viewText:{
+    width: '100%',
   }
 })

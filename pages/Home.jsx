@@ -7,13 +7,15 @@ const Home = ({ navigation}) => {
   return (
     <View style={styles.container}>
       <Image source={require('../images/mapMa.png')}/>
+      <View  style={styles.seta} onPress={() => navigation.navigate('page')}>
+        <TouchableOpacity onPress={() =>{ 
+          navigation.navigate('Page')
+          
+        }}>
+          <Ionicons  name="arrow-forward-circle-outline" size={60} color="black" />
+        </TouchableOpacity>
+      </View>
       
-      <TouchableOpacity onPress={() =>{ 
-        navigation.navigate('Page')
-        console.log('Page');
-      }}>
-        <Ionicons style={styles.seta} name="arrow-forward-circle-outline" size={60} color="black" />
-      </TouchableOpacity>
       
     </View>
   )
