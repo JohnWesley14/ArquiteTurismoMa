@@ -3,9 +3,10 @@ import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons'
 import TextHeader from '../../components/TextHeader'
 import ImageArthur from '../../components/ImageArthur'
+import { useNavigation } from '@react-navigation/native'
 
-const Local = ({ tema, texto1, texto2, imageOn } ) => {
-
+const Local = ({ tema, texto1, texto2, imageOn} ) => {
+  const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
@@ -17,7 +18,7 @@ const Local = ({ tema, texto1, texto2, imageOn } ) => {
 
        
         <View style={styles.divText}>
-          <TouchableOpacity style={styles.list}>
+          <TouchableOpacity style={styles.list} onPress={() => navigation.navigate('Page')}>
             <Text style={styles.item}>{tema}           <Ionicons style={styles.ionIcons} name="arrow-forward-circle-outline" size={24} color="white" /></Text>
             
           </TouchableOpacity>
